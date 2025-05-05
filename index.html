@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Puzzle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FF7F50, #FF1493);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Verdana', sans-serif;
+        }
+        .puzzle-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        pre {
+            background-color: #111;
+            color: #76FF03;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .riddle {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        input {
+            padding: 10px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #32CD32;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #28a745;
+        }
+        .hint {
+            font-size: 1em;
+            color: #ffff00;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Tech Puzzle</h1>
+
+    <div class="puzzle-container">
+        <p class="riddle">Can you decode this message?</p>
+        <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int numbers[] = {14, 7, 21, 20, 9, 8, 20, 8, 5, 14, 21, 20};
+    printf("The scrambled number sequence is: ");
+    for (int i = 0; i &lt; 12; i++) {
+        printf("%d ", numbers[i]);
+    }
+    printf("\nCan you decode it? What does it say?\n");
+    return 0;
+}
+        </code></pre>
+        
+        <p class="hint">Hint: Convert the numbers back to letters (A=1, B=2, ..., Z=26).</p>
+
+        <input type="text" id="userInput" placeholder="Enter the decoded message here...">
+        <button onclick="checkAnswer()">Submit Answer</button>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const userInput = document.getElementById("userInput").value.trim().toUpperCase();
+            const correctAnswer = "HUNTING THE HUNT";
+
+            if (userInput === correctAnswer) {
+                alert("Correct! You decoded the message.");
+                window.location.href = "qr-codes.html";  // Redirect to QR Codes page
+            } else {
+                alert("Oops! Try again.");
+            }
+        }
+    </script>
+</body>
+</html>
