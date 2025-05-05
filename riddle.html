@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Riddle Page</title>
+</head>
+<body>
+  <h2>Solve this Riddle:</h2>
+  <p>I have keys but no locks, I have space but no room, you can enter but can’t go outside. What am I?</p>
+
+  <input type="text" id="answer" placeholder="Your answer here">
+  <button onclick="checkAnswer()">Submit</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkAnswer() {
+      const ans = document.getElementById('answer').value.trim().toLowerCase();
+      if (ans.includes("keyboard")) {
+        document.getElementById('result').innerHTML = `
+          ✅ Correct! Click the link below to reveal the code:<br>
+          <a href="secret.html">Go to secret page</a>
+        `;
+      } else {
+        document.getElementById('result').textContent = "❌ Incorrect. Try again!";
+      }
+    }
+  </script>
+</body>
+</html>
